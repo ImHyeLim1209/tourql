@@ -4,43 +4,15 @@ type Sight {
   homepage:String
   tel:String
   title:String!
-  firstimage2:String
+  firstimage:String
   addr1:String!
   addr2:String
-  mapx:String
-  mapy:String
+  mapx:Float
+  mapy:Float
   overview:String
 }
 
-type SightDetail {
-  accomcount: Int 
-  expagerange: Int 
-  expguide: String
-  infocenter: String
-  parking:String
-  parkingfee:String
-  usefee:String
-  usetimeculture:String
-  useseason:String
-  usetime:String
-  eventhomepage:String
-  eventplace:String
-  discountinfofestival:String
-  eventstartdate:String
-  eventenddate:String
-  program:String
-  usetimefestival:String
-}
-
-type SightInput {
-  city:Int
-  district:Int
-  keyword:String
-  numOfRows:Int 
-  pageNo:Int
-}
-
-# SightDetail(id:Int!): SightDetail
 type Query {
   Sights(city: Int, district:Int, keyword:String, numOfRows:Int, pageNo:Int):[Sight]
+  Sight(id:Int!): Sight
 }
