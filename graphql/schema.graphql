@@ -13,6 +13,6 @@ type Sight {
 }
 
 type Query {
-  Sights(city: Int, district:Int, keyword:String, numOfRows:Int, pageNo:Int):[Sight]
-  Sight(id:Int!): Sight
+  sights(city: Int, district:Int, keyword:String, numOfRows:Int, pageNo:Int):[Sight]
+  sight(id:Int!): Sight
 }

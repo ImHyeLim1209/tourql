@@ -7,10 +7,10 @@ import { getSights, getSight } from "./sight-db"
 
 const resolvers = {
   Query: {
-    Sights: (_, { city, district, keyword, numOfRows, pageNo }) =>
+    sights: (_, { city, district, keyword, numOfRows, pageNo }) =>
       getSights(city, district, keyword, numOfRows, pageNo)
     ,
-    Sight: (_, { id }) => getSight(id)
+    sight: (_, { id }) => getSight(id)
   }
 };
 
