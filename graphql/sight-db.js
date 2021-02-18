@@ -7,7 +7,7 @@ const API_URL_LIST_HEAD = `http://api.visitkorea.or.kr/openapi/service/rest/KorS
 const API_URL_DETAIL_HEAD = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=${API_KEY}&contentTypeId=12&`;
 const API_URL_TAIL = `&MobileOS=ETC&MobileApp=Practice&_type=json`
 
-export const getSights = async (city = "", district = "", keyword = "", numOfRows = 6, pageNo = 1) => {
+export const getSights = async (city = "", district = "", keyword = "", numOfRows = 16, pageNo = 1) => {
   keyword = encodeURI(keyword);
 
   let API_URL_BODY = `areaCode=${city}&sigunguCode=${district}&keyword=${keyword}&numOfRows=${numOfRows}&pageNo=${pageNo}`
@@ -15,7 +15,9 @@ export const getSights = async (city = "", district = "", keyword = "", numOfRow
 
   return await axios(`${API_URL}`)
     .then(res => res.data)
-    .then(json => { return json.response.body.items.item })
+    .then(json => {
+      return { sights: json.response.body.items.item, totalCount: json.response.body.totalCount }
+    })
     .catch(function (error) {
       console.log(error);
     });

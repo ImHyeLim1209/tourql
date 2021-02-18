@@ -5,6 +5,7 @@ type Sight {
   tel:String
   title:String!
   firstimage:String
+  firstimage2: String
   addr1:String!
   addr2:String
   mapx:Float
@@ -12,7 +13,12 @@ type Sight {
   overview:String
 }
 
+type SightsList {
+  sights: [Sight]
+  totalCount: Int!
+}
+
 type Query {
-  sights(city: Int, district:Int, keyword:String, numOfRows:Int, pageNo:Int):[Sight]
+  sightList(city: Int, district:Int, keyword:String, numOfRows:Int, pageNo:Int):SightsList
   sight(id:Int!): Sight
 }

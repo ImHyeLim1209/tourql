@@ -7,7 +7,7 @@ import { getSights, getSight } from "./sight-db"
 
 const resolvers = {
   Query: {
-    sights: (_, { city, district, keyword, numOfRows, pageNo }) =>
+    sightList: (_, { city, district, keyword, numOfRows, pageNo }) =>
       getSights(city, district, keyword, numOfRows, pageNo)
     ,
     sight: (_, { id }) => getSight(id)
